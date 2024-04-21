@@ -7,12 +7,12 @@ wasted_liters = 0
 
 while cups and bottles:
     current_cup = cups.popleft()
-    current_bottle = bottles.popleft()
+    current_bottle = bottles.pop()
 
     if current_cup <= current_bottle:
         wasted_liters += current_bottle - current_cup
     else:
-        cups.append(current_cup - current_bottle)
+        cups.appendleft(current_cup - current_bottle)
 
 if cups:
     print(f"Cups:", *cups)
