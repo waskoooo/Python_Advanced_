@@ -5,7 +5,7 @@ robots = {}
 
 for r in input().split(";"):
     name, time_needed = r.split("-")
-    robots[name] = [time_needed, 0]
+    robots[name] = [int(time_needed), 0]
 
 factory_time = datetime.strptime(input(), "%H:%M:%S")
 products = deque()
@@ -38,5 +38,5 @@ while products:
     robots[robots_name][1] = data[0]
 
     print(f"{robots_name} - {product} [{factory_time.strptime('%H:%M:%S') }]")
-    
+
 
