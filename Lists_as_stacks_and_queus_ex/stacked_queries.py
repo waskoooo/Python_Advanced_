@@ -21,4 +21,4 @@ for _ in range(int(input())):
 
 numbers.reverse()
 
-print(*numbers)
+print(*numbers, sep=", ")
