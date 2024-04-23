@@ -8,3 +8,4 @@ for num in numbers:
 
 for number, occ in same_values.items():
     print(f"{number} - {occ} times")
+    
