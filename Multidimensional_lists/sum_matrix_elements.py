@@ -9,3 +9,4 @@ for i in range(row):
 
 print(total_amount)
 print(matrix)
+
