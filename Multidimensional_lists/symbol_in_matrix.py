@@ -19,7 +19,3 @@ for row_index in range(n):
 
 if not is_found:
     print(f"{searched_element} does not occur in the matrix")
-
-
-
-
