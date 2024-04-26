@@ -17,7 +17,7 @@ for row_index in range(row - 1):
 
         total_sum = current_element + next_element + element_under + element_diagonal
 
-        if max_sum <= total_sum:
+        if max_sum < total_sum:
             max_sum = total_sum
             sub_matrix = [[current_element, next_element], [element_under, element_diagonal]]
 
