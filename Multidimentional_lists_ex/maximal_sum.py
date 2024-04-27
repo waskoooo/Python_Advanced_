@@ -16,5 +16,5 @@ for row in range(rows - 2):
             max_sum = current_sum
             biggest_matrix = [first_row, second_row, third_row]
 
-print(f"Sum= {max_sum}")
+print(f"Sum = {max_sum}")
 [print(*row) for row in biggest_matrix]
