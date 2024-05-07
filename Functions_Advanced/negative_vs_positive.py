@@ -16,3 +16,4 @@ def print_numbers(nums: List[int]) -> None:
 
 numbers = [int(x) for x in input().split()]
 print_numbers(numbers)
+
