@@ -1,4 +1,5 @@
 from collections import deque
+
 from datetime import datetime, timedelta
 
 robots = {}
@@ -8,6 +9,7 @@ for r in input().split(";"):
     robots[name] = [int(time_needed), 0]
 
 factory_time = datetime.strptime(input(), "%H:%M:%S")
+
 products = deque()
 
 while True:
@@ -35,8 +37,7 @@ while products:
         continue
 
     robots_name, data = free_robots[0]
+
     robots[robots_name][1] = data[0]
 
     print(f"{robots_name} - {product} [{factory_time.strptime('%H:%M:%S') }]")
-
-
