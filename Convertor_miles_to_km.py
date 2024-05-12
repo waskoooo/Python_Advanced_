@@ -10,8 +10,8 @@ def convert():
 
 # window
 window = ttk.Window(themename='journal')
-window.title('Miles to KM ')
-window.geometry('400x150')
+window.title('Convertor ')
+window.geometry('400x400')
 
 # title
 title_label = ttk.Label(master=window,
@@ -37,6 +37,11 @@ output_label = ttk.Label(master=window,
                          font='Ariel 24',
                          textvariable= output_string)
 output_label.pack(pady=5)
+
+label = ttk.Label(master=window,
+                  text='BGN to EU',
+                  font='Ariel 28 bold')
+label.pack()
 
 # run
 window.mainloop()
