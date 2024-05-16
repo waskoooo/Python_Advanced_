@@ -19,3 +19,5 @@ print(func_executor(
     (sum_numbers, (1, 2)),
     (multiply_numbers, (2, 4))
 ))
+
+
