@@ -2,9 +2,21 @@ from tkinter import Entry
 
 from tkmacosx import Button
 
-from Moduls.Moduls_GUI_shop.helpers import clean_screen
+from Moduls.Moduls_GUI_shop.helpers import clean_screen, get_password_hash
 
 from canvas import root, frame
+
+from json import dump, loads
+
+
+def get_users_data():
+    info_data = []
+
+    with open('db/users_information.txt, "r') as users_file:
+        for line in users_file:
+            info_data.append(loads(line))
+
+    return info_data
 
 
 def render_entry():
@@ -61,7 +73,51 @@ def register():
 
 
 def registration():
-    print("Registered")
+    info_dict = {
+        "First name": first_name_box.get(),
+        "Last name": last_name_box.get(),
+        "Username": username_box.get(),
+        "Password": password_box.get(),
+    }
+
+    if check_registration(info_dict):
+        with open("db/users_information.txt", "a") as users_file:
+            info_dict["Password"] = get_password_hash(info_dict["Password"])
+            dump(info_dict, users_file)
+            users_file.write("\n")
+            # TODO: display products
+
+
+def check_registration(info_dict):
+    frame.delete("error")
+
+    for key, value in info_dict.items():
+        if not value.strip():
+            frame.create_text(
+                200,
+                300,
+                text=f"{key} cannot be empty!",
+                fill="red",
+                tags="error",
+            )
+
+            return False
+
+    users_data = get_users_data()
+
+    for user in users_data:
+        if user["Username"] == info_dict["Username"]:
+            frame.create_text(
+                200,
+                300,
+                text="Username is already taken!",
+                fill="red",
+                tags="error",
+            )
+
+            return False
+
+    return True
 
 
 def login():
@@ -72,4 +128,4 @@ def login():
 first_name_box = Entry(root, bd=0)
 last_name_box = Entry(root, bd=0)
 username_box = Entry(root, bd=0)
-password_box = Entry(root, bd=0)
+password_box = Entry(root, bd=0, show="*")
