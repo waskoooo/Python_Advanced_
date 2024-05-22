@@ -12,5 +12,8 @@ def display_stock():
     with open("db/products_data.json", "r") as stock:
         info = load(stock)
 
+    x, y = 150, 50
 
+    for item_name, item_info in info.items():
+        pass
 
