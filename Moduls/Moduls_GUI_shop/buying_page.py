@@ -9,8 +9,8 @@ def display_products():
 
 
 def display_stock():
-    with open("db/products.json", "r") as stock:
+    with open("db/products_data.json", "r") as stock:
         info = load(stock)
 
-    print(info)
+
 
