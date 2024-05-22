@@ -2,6 +2,7 @@ from tkinter import Entry
 
 from tkmacosx import Button
 
+from Moduls.Moduls_GUI_shop.buying_page import display_products
 from Moduls.Moduls_GUI_shop.helpers import clean_screen, get_password_hash
 
 from canvas import root, frame
@@ -85,7 +86,7 @@ def registration():
             info_dict["Password"] = get_password_hash(info_dict["Password"])
             dump(info_dict, users_file)
             users_file.write("\n")
-            # TODO: display products
+            display_products()
 
 
 def check_registration(info_dict):
@@ -134,8 +135,8 @@ def login():
 
 def logging():
     if check_login():
-        print("in!")
-        pass
+        display_products()
+
     else:
         frame.create_text(200,
                           200,
