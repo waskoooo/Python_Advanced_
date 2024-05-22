@@ -135,9 +135,7 @@ def login():
 def logging():
     if check_login():
         print("in!")
-          #  TODO: dispay products
         pass
-
     else:
         frame.create_text(200,
                           200,
